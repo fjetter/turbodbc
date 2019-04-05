@@ -9,6 +9,12 @@ if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     brew install psqlodbc
     brew install readline xz
 
+    # https://github.com/pyenv/pyenv/issues/993
+    # about openssl
+    export CFLAGS="-I$(brew --prefix openssl)/include $CFLAGS"
+    export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
+    # ----------------------------------------
+
     eval "$(pyenv init -)"
     pyenv install ${TRAVIS_PYTHON_VERSION}
     pyenv virtualenv ${TRAVIS_PYTHON_VERSION} turbodbc

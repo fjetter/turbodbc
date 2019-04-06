@@ -3,13 +3,13 @@ set -exo pipefail
 export ODBCSYSINI=${PWD}/travis/${ODBC_DIR}
 echo "FIRST PRINTENV"
 echo "================================================================="
-which python
+echo $(which python)
 printenv
 echo "================================================================="
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 pyenv activate turbodbc
-which python
+echo $(which python)
 printenv
 echo "================================================================="
 mkdir build && cd build

@@ -6,6 +6,8 @@ echo "================================================================="
 which python
 printenv
 echo "================================================================="
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 pyenv activate turbodbc
 which python
 printenv

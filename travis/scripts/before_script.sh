@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -exo pipefail
 if [ "$TRAVIS_OS_NAME" == "linux" ]; then
     $TRAVIS_BUILD_DIR/travis/setup_test_dbs.sh
     if [ "${TURBODBC_USE_CONDA}" == "yes" ]; then

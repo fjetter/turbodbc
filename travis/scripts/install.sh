@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -exo pipefail
 if [ "${TURBODBC_USE_CONDA}" != "yes" ]; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"

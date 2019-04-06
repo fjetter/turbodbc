@@ -16,6 +16,7 @@ if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     # # ----------------------------------------
 
     eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
     pyenv install ${TRAVIS_PYTHON_VERSION}
     pyenv virtualenv ${TRAVIS_PYTHON_VERSION} turbodbc
     pyenv activate turbodbc

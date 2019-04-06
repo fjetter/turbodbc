@@ -10,6 +10,7 @@ fi
 mkdir build && cd build
 
 if [ "${TURBODBC_USE_CONDA}" == "yes" ]; then
+    conda activate turbodbc-dev
     export UNIXODBC_INCLUDE_DIR=$CONDA_PREFIX/include
     # Install correct MS SQL driver path
     odbcinst -i -d -f /opt/microsoft/msodbcsql17/etc/odbcinst.ini

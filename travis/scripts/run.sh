@@ -10,7 +10,9 @@ printenv
 echo "================================================================="
 
 ls ${PYENV_VIRTUAL_ENV}/
-ls ${PYENV_VIRTUAL_ENV}/lib/turbodbc/site-packages
+ls ${PYENV_VIRTUAL_ENV}/lib/
+ls ${PYENV_VIRTUAL_ENV}/lib/*
+ls ${PYENV_VIRTUAL_ENV}/lib/*/site-packages/
 mkdir build && cd build
 
 if [ "${TURBODBC_USE_CONDA}" == "yes" ]; then

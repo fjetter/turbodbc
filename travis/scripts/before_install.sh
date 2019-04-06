@@ -8,7 +8,7 @@ if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     brew install pyenv-virtualenv
     brew install psqlodbc
     brew install readline xz
-
+    brew uninstall openssl && brew install openssl
     # https://github.com/pyenv/pyenv/issues/993
     # about openssl
     export CFLAGS="-I$(brew --prefix openssl)/include $CFLAGS"

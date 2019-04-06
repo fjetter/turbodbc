@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 export ODBCSYSINI=${PWD}/travis/${ODBC_DIR}
+printenv
 mkdir build && cd build
 
 if [ "${TURBODBC_USE_CONDA}" == "yes" ]; then

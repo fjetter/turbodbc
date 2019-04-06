@@ -1,7 +1,15 @@
 #!/bin/bash
 set -euxo pipefail
 export ODBCSYSINI=${PWD}/travis/${ODBC_DIR}
+echo "FIRST PRINTENV"
+echo "================================================================="
+which python
 printenv
+echo "================================================================="
+pyenv activate turbodbc
+which python
+printenv
+echo "================================================================="
 mkdir build && cd build
 
 if [ "${TURBODBC_USE_CONDA}" == "yes" ]; then

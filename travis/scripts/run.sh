@@ -1,18 +1,12 @@
 #!/bin/bash
 set -exo pipefail
 export ODBCSYSINI=${PWD}/travis/${ODBC_DIR}
-echo "================================================================="
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-pyenv activate turbodbc
-echo $(which python)
-printenv
-echo "================================================================="
 
-ls ${PYENV_VIRTUAL_ENV}/
-ls ${PYENV_VIRTUAL_ENV}/lib/
-ls ${PYENV_VIRTUAL_ENV}/lib/*
-ls ${PYENV_VIRTUAL_ENV}/lib/*/site-packages/
+if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+    eval "$(pyenv init -)"
+    pyenv activate turbodbc
+fi
+
 mkdir build && cd build
 
 if [ "${TURBODBC_USE_CONDA}" == "yes" ]; then

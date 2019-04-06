@@ -11,4 +11,12 @@ if [ "$TRAVIS_OS_NAME" == "linux" ]; then
         dpkg -L msodbcsql17
         docker exec -it mssql1 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'StrongPassword1' -Q 'CREATE DATABASE test_db'
     fi
+else
+    echo "Setting up preinstalled PostgreSQL database"
+    rm -rf /usr/local/var/postgres
+    initdb /usr/local/var/postgres
+    pg_ctl -D /usr/local/var/postgres -w start
+    createuser -s postgres
+    psql -U postgres -c 'CREATE DATABASE test_db;'
+    psql -U postgres -c "ALTER USER postgres WITH PASSWORD 'password';"
 fi

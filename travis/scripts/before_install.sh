@@ -1,36 +1,11 @@
 #!/bin/bash
 set -exo pipefail
-printenv
-if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-    # brew update
-    # brew uninstall pyenv && brew install pyenv
-    # brew uninstall --ignore-dependencies openssl && brew install openssl
-    # brew install unixodbc
-    # brew install pyenv-virtualenv
-    # brew install psqlodbc
-    # brew install readline xz
-    # # https://github.com/pyenv/pyenv/issues/993
-    # # about openssl
-    # export CFLAGS="-I$(brew --prefix openssl)/include $CFLAGS"
-    # export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
-    # # ----------------------------------------
 
+if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
     pyenv install ${TRAVIS_PYTHON_VERSION}
     pyenv virtualenv ${TRAVIS_PYTHON_VERSION} turbodbc
     pyenv activate turbodbc
-    python --version
-    pip install pytest mock
-
-
-    echo "Setting up preinstalled PostgreSQL database"
-    rm -rf /usr/local/var/postgres
-    initdb /usr/local/var/postgres
-    pg_ctl -D /usr/local/var/postgres -w start
-    createuser -s postgres
-    psql -U postgres -c 'CREATE DATABASE test_db;'
-    psql -U postgres -c "ALTER USER postgres WITH PASSWORD 'password';"
 fi
 
 if [ "${TURBODBC_USE_CONDA}" == "yes" ]; then

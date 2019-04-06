@@ -84,6 +84,11 @@ services:
   - postgresql
 
 addons:
+  homebrew:
+    - unixodbc
+    - pyenv-virtualenv
+    - psqlodbc
+
   apt:
     packages:
       - unixodbc

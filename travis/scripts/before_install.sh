@@ -2,18 +2,18 @@
 set -exo pipefail
 printenv
 if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-    brew update
-    brew uninstall pyenv && brew install pyenv
-    brew uninstall --ignore-dependencies openssl && brew install openssl
-    brew install unixodbc
-    brew install pyenv-virtualenv
-    brew install psqlodbc
-    brew install readline xz
-    # https://github.com/pyenv/pyenv/issues/993
-    # about openssl
-    export CFLAGS="-I$(brew --prefix openssl)/include $CFLAGS"
-    export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
-    # ----------------------------------------
+    # brew update
+    # brew uninstall pyenv && brew install pyenv
+    # brew uninstall --ignore-dependencies openssl && brew install openssl
+    # brew install unixodbc
+    # brew install pyenv-virtualenv
+    # brew install psqlodbc
+    # brew install readline xz
+    # # https://github.com/pyenv/pyenv/issues/993
+    # # about openssl
+    # export CFLAGS="-I$(brew --prefix openssl)/include $CFLAGS"
+    # export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
+    # # ----------------------------------------
 
     eval "$(pyenv init -)"
     pyenv install ${TRAVIS_PYTHON_VERSION}

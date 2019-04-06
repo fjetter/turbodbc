@@ -1,6 +1,7 @@
 #!/bin/bash
 set -exo pipefail
-if [ "$TRAVIS_OS_NAME" == "osx"]; then
+
+if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
     pyenv activate turbodbc

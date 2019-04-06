@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -exo pipefail
 export ODBCSYSINI=${PWD}/travis/${ODBC_DIR}
 echo "FIRST PRINTENV"
 echo "================================================================="

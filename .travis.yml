@@ -89,7 +89,6 @@ addons:
       - unixodbc
       - pyenv-virtualenv
       - psqlodbc
-
   apt:
     packages:
       - unixodbc

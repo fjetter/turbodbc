@@ -1,10 +1,6 @@
 #!/bin/bash
 set -exo pipefail
 export ODBCSYSINI=${PWD}/travis/${ODBC_DIR}
-echo "FIRST PRINTENV"
-echo "================================================================="
-echo $(which python)
-printenv
 echo "================================================================="
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -12,6 +8,9 @@ pyenv activate turbodbc
 echo $(which python)
 printenv
 echo "================================================================="
+
+ls ${PYENV_VIRTUAL_ENV}/
+ls ${PYENV_VIRTUAL_ENV}/lib/turbodbc/site-packages
 mkdir build && cd build
 
 if [ "${TURBODBC_USE_CONDA}" == "yes" ]; then

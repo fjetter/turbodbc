@@ -4,6 +4,7 @@ find_path(
     Numpy_INCLUDE_DIR
     numpy/npy_common.h
     HINTS
+        $ENV{PYENV_VIRTUAL_ENV}/lib/*/site-packages/numpy/core/include
         $ENV{VIRTUAL_ENV}/lib/*/site-packages/numpy/core/include
         $ENV{CONDA_PREFIX}/lib/*/site-packages/numpy/core/include
         ENV PYTHON_INCLUDE_DIR
